@@ -1,0 +1,23 @@
+language: ruby
+rvm:
+  - 1.8.7
+  - 1.9.3
+# uncomment this line if your project needs to run something other than `rake`:
+# script: bundle exec rspec spec
+script:
+- bundle exec rake test
+# See https://docs.travis-ci.com/user/docker/
+services:
+  - docker
+
+before_install:
+#- git clone github.com/palladius/sakura
+#- sakura/bin/rublurb
+#- gem install ric
+- docker build ruby-1.8.7/
+- docker build ruby-1.9.3/
+#- docker pull carlad/sinatra
+#- docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+#- docker ps -a
+#- docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+
