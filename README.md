@@ -30,6 +30,17 @@ This repo is about this - now. IN case I get drunk, my latest experiments are he
 
 * https://github.com/palladius/pasta/tree/master/docker-experiments 
 
+.. and it works!
+
+   ~/git/rubies/docker-experiments$ 🐸  ./for-each-docker-build-do pwd
+   Not built -> Skipping: Dockerfile.palladius-r187
+   #DEB Built ok - so proceeding with Dockerfile.palladius-septober
+   ruby 1.9.3p484 (2013-11-22 revision 43786) [x86_64-linux]
+   #DEB Built ok - so proceeding with Dockerfile.ru18ra2318
+   ruby 1.8.7 (2013-12-22 patchlevel 375) [x86_64-linux]
+   #DEB Built ok - so proceeding with Dockerfile.ruby18
+   ruby 1.8.7 (2017-12-15 patchlevel 377) [x86_64-linux]
+
 # Docker
 
 Ruby1.8 cant be found, ruby1.9 CAN.
