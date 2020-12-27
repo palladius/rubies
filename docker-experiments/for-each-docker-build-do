@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# here's my genius :) so idiomatic!
+DFLT_COMMAND="ruby --version"
+COMMAND=${!:-$DFLT_COMMAND}
+
+
+
+
+for F in Dockerfile.* ; do 
+    SUFFIX=$(echo $F | cut -d. -f 2 )
+    IMAGE="riccruby:$SUFFIX"
+    if [ -f ".$F.ok" ]; then
+        white "#DEB Built ok - so proceeding with $F"
+        # --volume todo:volume mount apps/
+        docker run -it -p 8080:8080 "$IMAGE" $COMMAND
+    else
+        red "Not built -> Skipping: $F"
+fi
+
+
+done
