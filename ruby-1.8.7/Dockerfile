@@ -4,7 +4,7 @@
 FROM ubuntu:16.04
 
 # With some help let's be clear!
-MAINTAINER Riccardo Carlesso <riccardo.carlesso@gmail.com>
+#MAINTAINER Riccardo Carlesso <riccardo.carlesso@gmail.com>
 
 WORKDIR /root
 
