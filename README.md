@@ -1,7 +1,9 @@
 README.md
 =========
 
-Questa pagina contiene prerequisiti per far andare TUTTA la baracca e anche conoscenze varie per fare andare mysql, e altre cose strane.
+This page containts preprequisites and black magic knowledge to make all my 2010 RoR 2.3.X apps work
+while ruby1.8 disappears from dockerhub.
+I'll also share knowledge to make  mysql go, and other weirdities.
 
 # Pages
 
@@ -19,3 +21,17 @@ Questa pagina contiene prerequisiti per far andare TUTTA la baracca e anche cono
     * 3.x -> 1.9.3
     * 4.x -> 2.0.x
    * Objective answer ma frega meno: https://stackoverflow.com/questions/9087116/which-ruby-on-rails-is-compatible-with-which-ruby-version
+
+# Super mega idea
+
+Mega idea that came this morning is: how about I try 238 different rubies and install a couple of my old apps and just try `script/server`
+on them and see if it works? I need a battery of N dockers which I an compile on a very big disk/cpu machine, and then say FOR I IN IMAGE DO ...
+This repo is about this - now. IN case I get drunk, my latest experiments are here:
+
+* https://github.com/palladius/pasta/tree/master/docker-experiments 
+
+# Docker
+
+Ruby1.8 cant be found, ruby1.9 CAN.
+
+rbenv vs rvm? Apparently for devs RBENV is better (more flex, more magic), but for prod/docker RVM is better (more static, less magic)
