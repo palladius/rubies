@@ -1,4 +1,5 @@
 FROM palladius/ruby187
 
-COPY toolz/ /toolz/
+COPY Gemfile /
+COPY ./toolz /
 
