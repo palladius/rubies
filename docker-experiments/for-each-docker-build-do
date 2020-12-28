@@ -4,6 +4,7 @@
 DFLT_COMMAND="ruby --version"
 COMMAND=${!:-$DFLT_COMMAND}
 
+PARENTDIR="$(dirname $(pwd))"
 
 
 
