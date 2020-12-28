@@ -10,7 +10,8 @@ for F in Dockerfile.* ; do
     else
     white "== Processing: $F =="
     #| tee ".$F.log"
-    docker build -t riccruby:$SUFFIX -f Dockerfile.$SUFFIX . 2>&1 | tee ".$F.log" &&
+    #| tee ".$F.log" If you add this, won't catch the exit <> 0. and everything will be OK.
+    docker build -t riccruby:$SUFFIX -f Dockerfile.$SUFFIX .  &&
         touch ".$F.ok" ||
             touch ".$F.nope"
     fi

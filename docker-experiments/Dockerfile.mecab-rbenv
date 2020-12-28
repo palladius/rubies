@@ -12,21 +12,22 @@ WORKDIR /root
 
 RUN apt update
 RUN apt upgrade -y
-RUN apt install -y ruby-build autoconf wget 
+RUN apt install -y ruby-build autoconf wget subversion
+# svn
 
 # falliscono entrambe porca pupazza :/
 #RUN apt build-dep -y ruby2.3 
 #RUN apt build-dep -y ruby-sqlite3 
 
 ENV PATH /root/.rbenv/shims:$PATH
-RUN rbenv install 1.8.7-p375
-RUN rbenv local 1.8.7-p375
-RUN gem install sqlite3
+#RUN rbenv install 1.8.7-p375
+#RUN rbenv local 1.8.7-p375
+#RUN gem install sqlite3
 
-RUN gem install rake -v 0.8.7
-RUN gem install mongrel
-RUN gem install rails -v 2.3.18
-RUN rbenv rehash
+#RUN gem install rake -v 0.8.7
+#RUN gem install mongrel
+#RUN gem install rails -v 2.3.18
+#RUN rbenv rehash
 
 WORKDIR /root
 CMD bash

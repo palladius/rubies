@@ -1,0 +1,24 @@
+#Dockerfile.debian-jessie
+# NOT TESTED from Luzifer but seems good
+# da https://gist.github.com/Luzifer/43c93283d2be0fcd65fd40a8016926d8
+
+FROM debian:jessie
+
+ENV RUBY_VERSION 1.8.7-p374
+ENV PATH /usr/local/rvm/gems/ruby-${RUBY_VERSION}/bin:/usr/local/rvm/gems/ruby-${RUBY_VERSION}@global/bin:/usr/local/rvm/rubies/ruby-${RUBY_VERSION}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/rvm/bin
+
+# GPG bug: https://stackoverflow.com/questions/44555760/cant-install-ruby-rvm-on-ubuntu-16-04-due-to-gpg-bug
+RUN set -ex \
+ && apt-get update && apt-get install -y curl gnupg2 
+
+RUN gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB \
+  &&  curl -sSL https://get.rvm.io | bash -s stable --ruby=${RUBY_VERSION}
+#RUN command curl -sSL https://rvm.io/mpapis.asc | gpg2 --import - \
+# && gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 \
+# && curl -sSL https://get.rvm.io | bash -s stable --ruby=${RUBY_VERSION}
+
+RUN rvm install ${RUBY_VERSION}
+
+#RUN gem install rails 2.3.18
+
+CMD rvm info
