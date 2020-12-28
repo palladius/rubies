@@ -33,3 +33,6 @@ RUN rbenv rehash
 
 WORKDIR /root
 CMD bash
+
+# echo 1.8.7-p374 > /root/.rbenv/version
+# note that ruby is installed correcrtly but is NOT used! by defaultr it uyses 2.3

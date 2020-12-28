@@ -2,19 +2,21 @@
 
 # here's my genius :) so idiomatic!
 DFLT_COMMAND="ruby --version"
-COMMAND=${!:-$DFLT_COMMAND}
+COMMAND=${1:-$DFLT_COMMAND}
 
 PARENTDIR="$(dirname $(pwd))"
 
 
-
+echo "== Executing on all image this command: $COMMAND =="
 for F in Dockerfile.* ; do 
     SUFFIX=$(echo $F | cut -d. -f 2 )
     IMAGE="riccruby:$SUFFIX"
     if [ -f ".$F.ok" ]; then
         white "#DEB Built ok - so proceeding with $F"
         # --volume todo:volume mount apps/
-        docker run -it -p 8080:8080 "$IMAGE" $COMMAND
+        docker run -it -p 8080:8080 \
+            --volume $PARENTDIR/apps:/apps \
+        "$IMAGE" $COMMAND
     else
         red "Not built -> Skipping: $F"
 fi
