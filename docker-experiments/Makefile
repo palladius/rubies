@@ -9,6 +9,8 @@ all: $(APPS)
 #	echo "$(MY_FILES)"
 #docker-build-$(APPS):#
 #	echo dollaro chiocciola $@
+clean:
+	rm .Dock*.ok .Dock*.nope
 
 Dockerfile.%-build: 
 	@echo DB1. target name: $@

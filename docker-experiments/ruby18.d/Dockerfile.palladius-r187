@@ -1,0 +1,7 @@
+FROM palladius/ruby187
+
+#RUN pwd
+
+#ADD Gemfile /
+#ADD toolz /toolz
+

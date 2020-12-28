@@ -1,5 +1,0 @@
-FROM palladius/ruby187
-
-COPY Gemfile /
-COPY ./toolz /
-
