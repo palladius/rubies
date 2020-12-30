@@ -46,3 +46,16 @@ This repo is about this - now. IN case I get drunk, my latest experiments are he
 Ruby1.8 cant be found, ruby1.9 CAN.
 
 rbenv vs rvm? Apparently for devs RBENV is better (more flex, more magic), but for prod/docker RVM is better (more static, less magic)
+
+## Dockerizing rails
+
+I'm finding ideas all over the internet, let's write them down here to then dockerize intelligently.
+
+1. `bundle package --all` will download the Gems locally. Great to save time at every dockerization - should make bundle install MUCH faster.
+2. Create "semi-finished product" docker images where you manually compile gems, like nokogiri which takes THREE minutes (!) to build. Of course you need to nail thje RIGHT version, eg `RUN gem install -N nokogiri -v 1.6.2.1` (i presume you reverse engineer after making the mistake once -> you back port the slow thing upstream)
+
+
+
+# Sources
+
+* https://medium.com/@benb88/dockerize-existing-ruby-on-rails-application-d75fe271c859
