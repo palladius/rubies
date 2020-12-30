@@ -1,6 +1,7 @@
 # Riccardo, This was originally the main `rubies/ruby-1.8.7/Dockerfile`
 # Found in: https://gist.github.com/formigarafa/474af0ce654389c2aabe34d9f0a0b881
 # Provides ruby1.8.7 with rails2.3.18
+# version: ric187.0.2
 
 FROM ubuntu:16.04
 
@@ -35,3 +36,5 @@ COPY VERSION /RUBY-VERSION.riccardo
 WORKDIR /root
 
 CMD bash
+
+
