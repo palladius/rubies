@@ -2,6 +2,7 @@
 
 ACTION=${1:-_NO_ACTION_}
 UGLY_TARGET=${2:-NO_TARGET} # eg Dockerfile.ruby18-[build|run]
+PARENTDIR="$(dirname $(pwd))"
 
 TARGET=$(echo $UGLY_TARGET | cut -d . -f 2 | sed -e s/-build// | sed -e s/-run// ) # -> ruby18
 
@@ -17,7 +18,7 @@ else
         echo lets run  | lolcat
         #echo "docker run -it -p 8080:8080 multipasta:$TARGET --volume TODO" | lolcat
         docker run -it -p 8080:8080 \
-          -v /home/riccardo/git/gcp-metarepo/pasta/:/pasta-mounted-volume/ \
+          -v $PARENTDIR/apps/pasta/:/pasta-mounted-volume/ \
            multipasta:$TARGET bash
     else
         echo 'call me with "run" or "build" mofo'

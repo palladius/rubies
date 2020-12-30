@@ -29,10 +29,18 @@ RUN rbenv local 1.8.7-p374
 RUN gem install rake -v 0.8.7
 #RUN gem install mongrel
 RUN gem install rails -v 2.3.18
+RUN gem install sqlite3-ruby -v 1.2.5
 RUN rbenv rehash
 
+# Consider forcing rbvn version to this one.. TBD
+RUN echo 1.8.7-p374 > /root/.rbenv/version
+RUN echo "gem: --no-document" >> /root/.gemrc
+
 WORKDIR /root
+
 CMD bash
+
+ENV DOCKER_DESCRIPTION "Just added sqlite3 which has been a calvarium.."
 
 # echo 1.8.7-p374 > /root/.rbenv/version
 # note that ruby is installed correcrtly but is NOT used! by defaultr it uyses 2.3
