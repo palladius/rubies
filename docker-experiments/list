@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Ricc Ruby ->rubric :)
+
+for D in ruby*.d/ ; do
+    RUBYVER="$(echo "$D"|sed -e "s/ruby//"|sed -e "s/\.d//")"  # ruby18.d -> 18
+    echo "# $D -- $RUBYVER"
+    for F in ${D}Dockerfile.* ; do
+        CUSTOM_PART="$(basename $F | sed -e "s/Dockerfile\.//" )" 
+        IMAGE="rubric$RUBYVER-$CUSTOM_PART" 
+        echo -e "$IMAGE\t$F" | lolcat
+
+    done
+done 
